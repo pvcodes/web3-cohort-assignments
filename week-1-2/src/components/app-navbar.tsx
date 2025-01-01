@@ -12,12 +12,13 @@ import {
 } from "@/components/ui/navigation-menu"
 import { TypographyH3 } from "./ui/Typography"
 import { Button } from "./ui/button"
-import { MODAL, useModalStore } from "@/stores/useModalStore"
+import { usePathname, useRouter } from "next/navigation"
 
 export default function AppNavbar() {
 
-    const setOpenModal = useModalStore(state => state.setOpenModal)
-    const ALL_MNEMONIC_MODAL_STATE = useModalStore(state => state.modals?.[MODAL.ALL_MNEMONIC_MODAL])
+    const router = useRouter()
+    const pathName = usePathname()
+
     return (
         <div className="flex justify-between">
             <TypographyH3>PiWallet</TypographyH3>
@@ -35,7 +36,7 @@ export default function AppNavbar() {
                         </NavigationMenuContent>
                     </NavigationMenuItem> */}
                     <NavigationMenuItem className="text-sm">
-                        <Button onClick={() => setOpenModal(MODAL.ALL_MNEMONIC_MODAL)} disabled={ALL_MNEMONIC_MODAL_STATE}>Login</Button>
+                        <Button onClick={() => router.push('/seeds')} disabled={pathName === '/seeds'}>Login</Button>
                     </NavigationMenuItem>
 
                 </NavigationMenuList>

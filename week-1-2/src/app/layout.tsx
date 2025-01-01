@@ -28,7 +28,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <CounterStoreProvider> */}
         <main className="pt-2 px-2 lg:w-9/12 lg:mx-auto">
           <AppNavbar />
           {children}

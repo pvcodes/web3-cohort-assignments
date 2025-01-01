@@ -1,4 +1,4 @@
-import { useWalletStore } from "@/stores/useWalletStore"
+import { usePubAddr } from "@/stores/useWalletStore"
 import {
     Table,
     TableBody,
@@ -12,7 +12,7 @@ import { Button } from "./ui/button"
 
 
 export default function Address() {
-    const publicAddress = useWalletStore(state => state.publicAddress)
+    const publicAddress = usePubAddr()
     console.log(publicAddress, 123131)
     return (
         publicAddress.length &&
